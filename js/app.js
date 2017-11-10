@@ -7,15 +7,3 @@ newGame.startGame();
 document.addEventListener("keydown", (event) => {
     newGame.turnFurry(event);
 });
-
-
-
-
-
-
-
-
-
-
-
-

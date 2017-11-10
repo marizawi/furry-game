@@ -4,6 +4,13 @@
     margin: 0;
 }
 
+body {
+    background: url("../images/gradient-background.jpg") no-repeat center/cover;
+    font-family: 'Inconsolata', monospace;
+    color: #2B5184;
+    font-size: large;
+}
+
 section#score {
     width: 100%;
 }
@@ -14,10 +21,11 @@ section#score {
     margin: 1em auto;
     display: flex;
     flex-wrap: wrap;
+    background-color: rgba(81, 195, 196, 0.5);
 }
 
 #board > div {
-    border: 1px solid black;
+    border: 1px solid #2B5184;
     width: 64px;
     height: 64px;
 }
@@ -27,23 +35,19 @@ section#score div {
     height: 3em;
     text-align: center;
     padding: 0.5em;
-    background-color: rgba(211, 211, 211, 0.75);
-    border: 1px solid lightgray;
+    background-color: rgba(255, 180, 70, 0.75);
+    border: 1px solid rgb(255, 180, 70);
     border-radius: 1px;
-    box-shadow: 1px 1px 5px 1px lightgray;
+    box-shadow: 1px 1px 5px 1px rgb(255, 180, 70);
     margin: 1em auto;
 }
 
 .furry {
-    background-image: url('../images/useravatar.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url('../images/useravatar.svg') no-repeat center/cover;
 }
 
 .bone {
-    background-image: url('../images/bone.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url('../images/bone.png') no-repeat center/cover;
 }
 
 section#over {
@@ -54,18 +58,32 @@ section#over {
     top: 0;
     z-index: 1;
     padding: 10px;
-    background-color: rgba(255, 255, 0, 0.75);
+    background-color: rgba(255, 180, 70, 0.75);
 }
 
 section#over div {
     text-align: center;
     font-weight: bolder;
-    color: brown;
+    color: #2B5184;
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
+}
+
+section#over div h1,
+section#over div h3 {
+    margin: 50px 0;
+}
+
+#restart {
+    background: #FFA032;
+    color: #2B5184;
+    padding: 10px;
+    border: 1px solid rgb(255, 180, 70);
+    border-radius: 1px;
+    box-shadow: 1px 1px 5px 1px rgb(255, 180, 70);
 }
 
 .invisible {

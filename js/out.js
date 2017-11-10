@@ -81,18 +81,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /***/ }),
 /* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -159,6 +147,7 @@ let Game = function () {
     };
     this.checkBoneCollision = () => {
         if (this.furry.x === this.bone.x && this.furry.y === this.bone.y) {
+            document.getElementById("woof").play();
             this.board[this.index(this.bone.x, this.bone.y)].classList.remove('bone');
             this.score += 1;
             let scoreEl = document.querySelector("#score strong");
@@ -169,6 +158,7 @@ let Game = function () {
     };
     this.gameOver = () => {
         if (this.furry.x < 0 || this.furry.x > 9 || this.furry.y < 0 || this.furry.y > 9) {
+            document.getElementById("gameover").play();
             clearInterval(this.idSetInterval);
             this.hideVisibleFurry();
             document.getElementById("over").classList.remove("invisible");

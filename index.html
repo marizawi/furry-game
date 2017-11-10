@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Furry game</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 </head>
 <body>
 <section id="score">
@@ -118,8 +119,13 @@
     <div>
         <h1>GAME OVER!</h1>
         <h3>Score: <strong></strong></h3>
+        <form>
+            <input id="restart" type="submit" value="RESTART" onClick="window.location.reload()"/>
+        </form>
     </div>
 </section>
+<audio id="woof" src="./audio/Dog-Woof.wav"></audio>
+<audio id="gameover" src="./audio/Game-Over.mp3"></audio>
 <script src="js/out.js"></script>
 </body>
 </html>

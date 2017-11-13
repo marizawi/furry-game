@@ -34,8 +34,8 @@ let Game = function () {
         } else {
             console.log("Wrong direction");
         }
-        this.showFurry();
         this.gameOver();
+        this.showFurry();
         this.checkBoneCollision();
     };
     this.turnFurry = event => {

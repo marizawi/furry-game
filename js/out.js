@@ -65,142 +65,155 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__game_js__ = __webpack_require__(1);
 
 
-let newGame = new __WEBPACK_IMPORTED_MODULE_0__game_js__["a" /* Game */]();
+var _game = __webpack_require__(1);
+
+var newGame = new _game.Game();
 newGame.showFurry();
 newGame.showBone();
 newGame.startGame();
-document.addEventListener("keydown", (event) => {
+document.addEventListener("keydown", function (event) {
     newGame.turnFurry(event);
 });
 
-
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Game; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__furry_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bone_js__ = __webpack_require__(3);
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Game = undefined;
 
-let Game = function () {
+var _furry = __webpack_require__(2);
+
+var _bone = __webpack_require__(3);
+
+var Game = function Game() {
+    var _this = this;
+
     this.board = document.querySelectorAll("section#board div");
-    this.furry = new __WEBPACK_IMPORTED_MODULE_0__furry_js__["a" /* Furry */]();
-    this.bone = new __WEBPACK_IMPORTED_MODULE_1__bone_js__["a" /* Bone */]();
+    this.furry = new _furry.Furry();
+    this.bone = new _bone.Bone();
     this.score = 0;
-    this.index = (x, y) => {
-        return x + (y * 10);
+    this.index = function (x, y) {
+        return x + y * 10;
     };
-    this.showFurry = () => {
-        this.hideVisibleFurry();
-        this.board[this.index(this.furry.x, this.furry.y)].classList.add('furry');
+    this.showFurry = function () {
+        _this.hideVisibleFurry();
+        _this.board[_this.index(_this.furry.x, _this.furry.y)].classList.add('furry');
     };
-    this.hideVisibleFurry = () => {
-        let furryClass = document.querySelector(".furry");
+    this.hideVisibleFurry = function () {
+        var furryClass = document.querySelector(".furry");
         if (furryClass !== null) {
             furryClass.classList.remove("furry");
         }
     };
-    this.showBone = () => {
-        this.board[this.index(this.bone.x, this.bone.y)].classList.add('bone');
+    this.showBone = function () {
+        _this.board[_this.index(_this.bone.x, _this.bone.y)].classList.add('bone');
     };
-    this.moveFurry = () => {
-        if (this.furry.direction === "right") {
-            this.furry.x += 1;
-        } else if (this.furry.direction === "left") {
-            this.furry.x -= 1;
-        } else if (this.furry.direction === "bottom") {
-            this.furry.y += 1;
-        } else if (this.furry.direction === "top") {
-            this.furry.y -= 1;
+    this.moveFurry = function () {
+        if (_this.furry.direction === "right") {
+            _this.furry.x += 1;
+        } else if (_this.furry.direction === "left") {
+            _this.furry.x -= 1;
+        } else if (_this.furry.direction === "bottom") {
+            _this.furry.y += 1;
+        } else if (_this.furry.direction === "top") {
+            _this.furry.y -= 1;
         } else {
             console.log("Wrong direction");
         }
-        this.showFurry();
-        this.gameOver();
-        this.checkBoneCollision();
+        _this.gameOver();
+        _this.showFurry();
+        _this.checkBoneCollision();
     };
-    this.turnFurry = event => {
+    this.turnFurry = function (event) {
         switch (event.which) {
             case 37:
-                this.furry.direction = "left";
+                _this.furry.direction = "left";
                 break;
             case 38:
-                this.furry.direction = "top";
+                _this.furry.direction = "top";
                 break;
             case 39:
-                this.furry.direction = "right";
+                _this.furry.direction = "right";
                 break;
             case 40:
-                this.furry.direction = "bottom";
+                _this.furry.direction = "bottom";
                 break;
         }
     };
-    this.checkBoneCollision = () => {
-        if (this.furry.x === this.bone.x && this.furry.y === this.bone.y) {
+    this.checkBoneCollision = function () {
+        if (_this.furry.x === _this.bone.x && _this.furry.y === _this.bone.y) {
             document.getElementById("woof").play();
-            this.board[this.index(this.bone.x, this.bone.y)].classList.remove('bone');
-            this.score += 1;
-            let scoreEl = document.querySelector("#score strong");
-            scoreEl.innerText = this.score;
-            this.bone = new __WEBPACK_IMPORTED_MODULE_1__bone_js__["a" /* Bone */]();
-            this.showBone();
+            _this.board[_this.index(_this.bone.x, _this.bone.y)].classList.remove('bone');
+            _this.score += 1;
+            var scoreEl = document.querySelector("#score strong");
+            scoreEl.innerText = _this.score;
+            _this.bone = new _bone.Bone();
+            _this.showBone();
         }
     };
-    this.gameOver = () => {
-        if (this.furry.x < 0 || this.furry.x > 9 || this.furry.y < 0 || this.furry.y > 9) {
+    this.gameOver = function () {
+        if (_this.furry.x < 0 || _this.furry.x > 9 || _this.furry.y < 0 || _this.furry.y > 9) {
             document.getElementById("gameover").play();
-            clearInterval(this.idSetInterval);
-            this.hideVisibleFurry();
+            clearInterval(_this.idSetInterval);
+            _this.hideVisibleFurry();
             document.getElementById("over").classList.remove("invisible");
-            document.querySelector("#over strong").innerText = this.score;
+            document.querySelector("#over strong").innerText = _this.score;
         }
     };
-    this.startGame = () => {
-        this.idSetInterval = setInterval(() => {
-            this.moveFurry();
+    this.startGame = function () {
+        _this.idSetInterval = setInterval(function () {
+            _this.moveFurry();
         }, 250);
-    }
+    };
 };
 
-
+exports.Game = Game;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Furry; });
-var Furry = function () {
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var Furry = function Furry() {
     this.x = 0;
     this.y = 0;
     this.direction = "right";
-}
+};
 
-
-
+exports.Furry = Furry;
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Bone; });
-let Bone = function () {
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var Bone = function Bone() {
     this.x = Math.floor(Math.random() * 10);
     this.y = Math.floor(Math.random() * 10);
 };
 
-
+exports.Bone = Bone;
 
 /***/ })
 /******/ ]);

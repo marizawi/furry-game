@@ -35,8 +35,8 @@ let Game = function () {
             console.log("Wrong direction");
         }
         this.gameOver();
-        this.showFurry();
         this.checkBoneCollision();
+        this.showFurry();
     };
     this.turnFurry = event => {
         switch (event.which) {
@@ -71,7 +71,7 @@ let Game = function () {
             clearInterval(this.idSetInterval);
             this.hideVisibleFurry();
             document.getElementById("over").classList.remove("invisible");
-            document.querySelector("#over strong").innerText = this.score;
+            document.querySelector("#over strong").innerText = (this.score).toString();
         }
     };
     this.startGame = () => {

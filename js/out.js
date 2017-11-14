@@ -73,7 +73,6 @@
 var _game = __webpack_require__(1);
 
 var newGame = new _game.Game();
-newGame.showFurry();
 newGame.showBone();
 newGame.startGame();
 document.addEventListener("keydown", function (event) {
@@ -132,8 +131,8 @@ var Game = function Game() {
             console.log("Wrong direction");
         }
         _this.gameOver();
-        _this.showFurry();
         _this.checkBoneCollision();
+        _this.showFurry();
     };
     this.turnFurry = function (event) {
         switch (event.which) {
@@ -168,7 +167,7 @@ var Game = function Game() {
             clearInterval(_this.idSetInterval);
             _this.hideVisibleFurry();
             document.getElementById("over").classList.remove("invisible");
-            document.querySelector("#over strong").innerText = _this.score;
+            document.querySelector("#over strong").innerText = _this.score.toString();
         }
     };
     this.startGame = function () {

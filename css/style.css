@@ -9,10 +9,19 @@ body {
     font-family: 'Inconsolata', monospace;
     color: #2B5184;
     font-size: large;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 section#score {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 section#score div {
@@ -24,13 +33,11 @@ section#score div {
     border: 1px solid rgb(255, 180, 70);
     border-radius: 1px;
     box-shadow: 1px 1px 5px 1px rgb(255, 180, 70);
-    margin: 1em auto;
 }
 
 section#board {
     width: 600px;
     height: 600px;
-    margin: 1em auto;
     display: flex;
     flex-wrap: wrap;
     background-color: rgba(81, 195, 196, 0.5);

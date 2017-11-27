@@ -73,7 +73,7 @@ section#over div {
     font-weight: bolder;
     color: #2B5184;
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
